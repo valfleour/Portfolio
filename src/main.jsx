@@ -18,80 +18,104 @@ import "./styles.css";
 
 const skills = [
   {
-    title: "Research & Analytical Skills",
+    title: "Product Ownership",
     items: [
-      "Domain Research",
-      "UX Research",
-      "Workflow Discovery",
-      "Stakeholder Communication",
-      "System Analysis",
-      "Data Interpretation",
-      "Process Mapping",
-      "User-Centered Problem Solving",
-    ],
-  },
-  {
-    title: "Product & Domain Understanding",
-    items: [
-      "Business Workflow Analysis",
-      "Process Digitization",
-      "Enterprise Systems Understanding",
-      "Operations-to-System Translation",
-      "Requirements Gathering",
-      "Domain-Driven Design",
-      "User Pain Point Analysis",
-    ],
-  },
-  {
-    title: "Technical & Systems Collaboration",
-    items: [
-      "Developer Collaboration",
-      "Technical Product Ownership",
-      "System Architecture Awareness",
-      "Sprint Planning",
-      "Ticket Tracking",
+      "Product Ownership",
+      "Product Backlog Management",
+      "Backlog Refinement",
+      "Product Prioritization",
+      "User Story Writing",
+      "User Story Mapping",
+      "Acceptance Criteria",
       "Agile / Scrum",
+      "Sprint Planning",
+      "Release Validation",
     ],
   },
   {
-    title: "AI-Assisted Product Building",
+    title: "Business Analysis & Product Strategy",
     items: [
-      "AI-Assisted Development",
-      "No-Code / Low-Code Thinking",
-      "Human + AI Collaboration",
-      "Interaction Design",
-      "Product Experimentation",
+      "Requirements Gathering",
+      "Business Analysis",
+      "Process Analysis",
+      "Workflow Optimization",
+      "Product Discovery",
+      "Business Process Improvement",
+      "Domain-Driven Design (DDD)",
+      "Data-Driven Decision Making",
     ],
   },
   {
-    title: "UI/UX Design",
+    title: "Stakeholder & Delivery Collaboration",
     items: [
-      "UI Design",
-      "UX Design",
-      "Design Systems",
-      "Responsive Design",
+      "Stakeholder Management",
+      "Cross-functional Collaboration",
+      "Developer Collaboration",
+      "Daily Standups",
+      "Sprint Reviews & Retrospectives",
+      "User Feedback Management",
+      "Product Documentation",
+      "Technical Documentation",
+    ],
+  },
+  {
+    title: "Product Quality & Continuous Improvement",
+    items: [
+      "Feature Validation",
+      "Functional Testing",
+      "Usability Improvements",
+      "Process Optimization",
+      "Product Quality Improvement",
+      "Release Readiness",
+      "Continuous Improvement",
+      "User Adoption Support",
+    ],
+  },
+  {
+    title: "UX for Product Ownership",
+    items: [
+      "User-Centered Design",
+      "UX Research",
+      "Design Thinking",
+      "Information Architecture",
       "Interaction Design",
+      "Usability Testing",
+      "Wireframing",
       "Figma",
-      "Spline",
     ],
   },
 ];
 
 const productFeedback = [
-  "Missing workflow support",
-  "Simpler reporting paths",
-  "Clearer approval states",
-  "Less manual re-entry",
-  "Interfaces that reduce site errors",
+  "Unclear product requirements",
+  "Backlog items without business value",
+  "Workflows misaligned with site operations",
+  "Slow approvals and handover bottlenecks",
+  "Features that need validation before release",
+  "Documentation gaps that slow adoption",
 ];
 
 const currentFocus = [
-  "UI/UX Design",
-  "Product Thinking",
-  "Domain-Driven Design",
-  "Workflow Optimization",
-  "Frontend Systems",
-  "Construction & Commissioning Operations",
+  "Product Ownership",
+  "Agile Methodologies",
+  "Scrum",
+  "Product Backlog Management",
+  "Backlog Refinement",
+  "Product Prioritization",
+  "Requirements Gathering",
+  "User Story Writing",
+  "User Story Mapping",
+  "Acceptance Criteria",
+  "Stakeholder Management",
+  "Sprint Planning",
+  "Business Analysis",
+  "User-Centered Design",
+  "Design Thinking",
+  "Figma",
+  "Usability Testing",
+  "Generative AI",
+  "Problem Solving",
+  "Leadership",
 ];
 
 const journeySteps = [
@@ -100,23 +124,23 @@ const journeySteps = [
     detail: "Turnover, test packs, spoolgen, commissioning, and handover work.",
   },
   {
-    label: "Workflow insight",
-    detail: "First-hand exposure to unclear interfaces, repetitive processes, and slow reporting.",
+    label: "Domain understanding",
+    detail: "Seeing how field execution, approvals, reports, and handover workflows really behave.",
   },
   {
     label: "Product ownership",
-    detail: "Turning operational pain points into better platform decisions and user flows.",
+    detail: "Owning backlog decisions, user stories, acceptance criteria, validation, and release readiness.",
   },
   {
-    label: "UI/UX practice",
-    detail: "Combining domain expertise with design systems, interaction design, and frontend thinking.",
+    label: "UX-informed delivery",
+    detail: "Applying self-directed UI/UX learning to make product decisions clearer and easier to adopt.",
   },
 ];
 
 const caseStudies = [
   {
     id: "skill-matrix-application",
-    eyebrow: "UI/UX Case Study",
+    eyebrow: "Product Ownership Case Study",
     title: "Skill Matrix Application",
     summary:
       "A web-based workforce capability management platform designed to help organizations visualize, manage, and evaluate employee skills across departments, teams, and company positions.",
@@ -498,7 +522,7 @@ function TopBar() {
       <a className="brand-lockup" href="#home" aria-label="Aldren Gacute home">
         <span>
           <strong>Aldren Gacute</strong>
-          <small>Product Owner / UI/UX Designer</small>
+          <small>Product Owner | UI/UX &amp; Workflow</small>
         </span>
       </a>
 
@@ -541,12 +565,11 @@ function HomeSection() {
         <div className="hero-copy">
           <p className="eyebrow">Portfolio / Product UX / Operations</p>
           <h1 id="home-title">
-            Hi, I&rsquo;m Aldren. I design clear systems for complex work.
+            Hi, I&rsquo;m Aldren.
           </h1>
           <p className="hero-lede">
-            I bring 8+ years of construction and commissioning operations into
-            product ownership, UI/UX design, workflow optimization, and frontend
-            collaboration.
+            Product Owner | UI/UX &amp; Workflow-Focused Problem Solver | Bridging
+            Design, Systems &amp; User Experience
           </p>
 
           <div className="hero-actions">
@@ -561,16 +584,16 @@ function HomeSection() {
 
           <dl className="hero-stats" aria-label="Portfolio highlights">
             <div>
-              <dt>8+</dt>
-              <dd>years in engineering operations</dd>
+              <dt>Product owner</dt>
+              <dd>Backlog • Prioritization • Delivery</dd>
             </div>
             <div>
-              <dt>PO</dt>
-              <dd>product ownership for internal systems</dd>
+              <dt>Construction Engineering</dt>
+              <dd>7 Years of Field Engineering &amp; Turnover Experience</dd>
             </div>
             <div>
-              <dt>UX</dt>
-              <dd>design systems, research, and prototypes</dd>
+              <dt>UI/UX</dt>
+              <dd>Workflow Optimization &amp; Product Design</dd>
             </div>
           </dl>
         </div>
@@ -586,8 +609,8 @@ function AboutSection() {
       <SectionHeader
         eyebrow="About me"
         id="about-title"
-        title="Design shaped by real project pressure"
-        description="My UX work did not start in a perfect design brief. It started in turnover rooms, field execution, approvals, reporting, and handover workflows where clarity directly affects delivery."
+        title="Product owner grounded in operations"
+        description="Product Owner with a strong operations background, translating business needs into user-focused digital solutions. Experienced in backlog management, stakeholder collaboration, and delivering product enhancements through Agile practices."
       />
 
       <div className="about-grid">
@@ -602,33 +625,31 @@ function AboutSection() {
 
       <div className="split-section">
         <div className="story-block">
-          <h3>From operations to product design</h3>
+          <h3>Product ownership with field-tested domain context</h3>
           <p>
-            I began in oil, gas, and construction as a Completion System
-            Engineer, supporting turnover, test packs, spoolgen, commissioning,
-            and system handover activities across projects in the Philippines,
-            Bahrain, and Saudi Arabia.
+            I am a Product Owner with nearly two years of experience delivering
+            digital products, backed by over seven years of engineering and
+            operations experience.
           </p>
           <p>
-            Over time, I became the person who could translate operational pain
-            points into product conversations: where reports were unclear, where
-            users repeated work, where approvals slowed down, and where the
-            interface could help teams move with more confidence.
+            My background enables me to understand business and operational
+            challenges and translate them into clear, actionable product
+            requirements. I manage and refine the product backlog, define user
+            stories and acceptance criteria, prioritize enhancements, and
+            validate delivered features to ensure they meet business objectives.
           </p>
           <p>
-            Now, alongside product ownership, I continue to deepen my skills in
-            UI/UX design, interaction design, design systems, and frontend
-            development, combining domain expertise with modern digital product
-            thinking.
-          </p>
-          <p>
-            I believe the best products are built by understanding both the
-            system and the people using it.
+            I collaborate closely with stakeholders, users, and development
+            teams throughout the product lifecycle, from requirements gathering
+            and backlog refinement to sprint planning, testing, and release. I
+            enjoy solving complex problems, improving processes, and delivering
+            products that create meaningful value for both users and the
+            business.
           </p>
         </div>
 
         <div className="feedback-panel" aria-label="Common product feedback areas">
-          <h3>What I usually improve</h3>
+          <h3>What I drive as a PO</h3>
           <ul>
             {productFeedback.map((item) => (
               <li key={item}>
@@ -926,7 +947,7 @@ function Footer() {
     <footer className="footer" aria-label="Contact footer">
       <div>
         <strong>Aldren Gacute</strong>
-        <span>Product ownership, UI/UX design, and workflow systems.</span>
+        <span>Product ownership, domain-driven delivery, and workflow systems.</span>
       </div>
       <a
         className="button button--primary"

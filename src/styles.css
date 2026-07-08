@@ -1,33 +1,33 @@
 :root {
-  --color-bg: #ffffff;
-  --color-bg-strong: #ffffff;
-  --color-surface: rgba(255, 255, 255, 0.92);
-  --color-surface-solid: #ffffff;
-  --color-surface-subtle: #fafafa;
-  --color-stroke: #d1d1d1;
-  --color-stroke-subtle: #e6e6e6;
-  --color-text: #242424;
-  --color-muted: #616161;
-  --color-faint: #8a8886;
-  --color-brand: #0f6cbd;
-  --color-brand-hover: #115ea3;
-  --color-brand-subtle: #ebf3fc;
-  --color-accent-rose: #e3008c;
-  --color-accent-violet: #8764b8;
-  --color-accent-cyan: #00b7c3;
-  --color-accent-orange: #ffb900;
-  --color-accent-green: #13a10e;
-  --color-accent-coral: #ff5c39;
-  --color-success: #107c10;
-  --color-success-subtle: #e9f6e9;
-  --color-warning: #f7e8c3;
-  --shadow-2: 0 2px 6px rgba(0, 0, 0, 0.08);
-  --shadow-8: 0 8px 24px rgba(0, 0, 0, 0.11);
-  --shadow-16: 0 16px 42px rgba(0, 0, 0, 0.13);
-  --shadow-vivid: 0 20px 54px rgba(15, 108, 189, 0.16);
+  --color-bg: #000000;
+  --color-bg-strong: #000000;
+  --color-surface: rgba(8, 8, 8, 0.94);
+  --color-surface-solid: #050505;
+  --color-surface-subtle: #101010;
+  --color-stroke: #ffffff;
+  --color-stroke-subtle: #2a2a2a;
+  --color-text: #ffffff;
+  --color-muted: #d7d7d7;
+  --color-faint: #8d8d8d;
+  --color-brand: #ffffff;
+  --color-brand-hover: #e8e8e8;
+  --color-brand-subtle: #151515;
+  --color-accent-rose: #ffffff;
+  --color-accent-violet: #ffffff;
+  --color-accent-cyan: #ffffff;
+  --color-accent-orange: #ffffff;
+  --color-accent-green: #ffffff;
+  --color-accent-coral: #ffffff;
+  --color-success: #ffffff;
+  --color-success-subtle: #151515;
+  --color-warning: #151515;
+  --shadow-2: 0 1px 0 rgba(255, 255, 255, 0.18);
+  --shadow-8: 0 14px 34px rgba(255, 255, 255, 0.08);
+  --shadow-16: 0 24px 72px rgba(255, 255, 255, 0.1);
+  --shadow-vivid: 0 32px 90px rgba(255, 255, 255, 0.14);
   --motion-expressive: cubic-bezier(0.16, 1, 0.3, 1);
-  --radius: 8px;
-  --radius-sm: 6px;
+  --radius: 2px;
+  --radius-sm: 2px;
 }
 
 * {
@@ -43,7 +43,7 @@ html {
 body {
   min-height: 100%;
   margin: 0;
-  background: #ffffff;
+  background: #000000;
   color: var(--color-text);
   font-family:
     "Segoe UI Variable",
@@ -79,16 +79,22 @@ svg {
 }
 
 .portfolio-page {
+  position: relative;
+  isolation: isolate;
   min-height: 100vh;
   padding: 24px 80px 0;
   overflow-x: hidden;
   background:
-    linear-gradient(180deg, #ffffff 0%, #ffffff 62%, #f8fafc 100%);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.52) 58%, rgba(0, 0, 0, 0.78) 100%),
+    url("/backgrounds/dark-flowers.jpg") center 24% / cover no-repeat fixed,
+    #000000;
 }
 
 .page-main,
 .top-bar,
 .footer {
+  position: relative;
+  z-index: 1;
   width: min(100%, 1040px);
   margin: 0 auto;
 }
@@ -116,10 +122,10 @@ svg {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  border: 1px solid rgba(209, 209, 209, 0.72);
+  border: 1px solid var(--color-stroke);
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.68);
-  box-shadow: 0 12px 34px rgba(36, 36, 36, 0.06);
+  background: rgba(0, 0, 0, 0.72);
+  box-shadow: 0 14px 0 rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(22px);
 }
 
@@ -131,6 +137,7 @@ svg {
 
 .brand-lockup strong,
 .brand-lockup small {
+  color: #ffffff;
   display: block;
 }
 
@@ -142,7 +149,6 @@ svg {
 
 .brand-lockup small {
   margin-top: 1px;
-  color: var(--color-muted);
   font-size: 12px;
   line-height: 16px;
 }
@@ -191,29 +197,30 @@ svg {
 }
 
 .button--primary {
-  background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-accent-violet) 56%, var(--color-accent-rose) 100%);
-  color: #ffffff;
-  box-shadow: 0 10px 24px rgba(15, 108, 189, 0.18);
+  border-color: var(--color-brand);
+  background: var(--color-brand);
+  color: #000000;
+  box-shadow: 7px 7px 0 rgba(255, 255, 255, 0.16);
 }
 
 .button--primary:hover,
 .button--primary:focus-visible {
-  background: linear-gradient(135deg, var(--color-brand-hover) 0%, #744da9 54%, #c9007a 100%);
-  color: #ffffff;
-  box-shadow: 0 16px 34px rgba(227, 0, 140, 0.22);
+  background: transparent;
+  color: var(--color-brand);
+  box-shadow: 9px 9px 0 rgba(255, 255, 255, 0.16);
 }
 
 .button--subtle {
   border-color: var(--color-stroke);
-  background: var(--color-surface-solid);
+  background: transparent;
   color: var(--color-text);
 }
 
 .button--subtle:hover,
 .button--subtle:focus-visible {
-  border-color: #bdbdbd;
-  background: #f5f5f5;
-  color: var(--color-text);
+  border-color: var(--color-brand);
+  background: var(--color-brand);
+  color: #000000;
   box-shadow: var(--shadow-2);
 }
 
@@ -224,11 +231,9 @@ svg {
   z-index: 40;
   width: 156px;
   padding: 8px;
-  border: 1px solid rgba(209, 209, 209, 0.82);
+  border: 1px solid var(--color-stroke);
   border-radius: var(--radius);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(250, 250, 250, 0.82)),
-    linear-gradient(145deg, rgba(227, 0, 140, 0.08), rgba(0, 183, 195, 0.1));
+  background: rgba(0, 0, 0, 0.86);
   box-shadow: var(--shadow-16);
   backdrop-filter: blur(22px);
   transform: translateY(-50%);
@@ -280,16 +285,14 @@ svg {
 }
 
 .floating-nav__item:hover {
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--color-brand);
+  background: var(--color-brand);
+  color: #000000;
   transform: translateX(-3px);
 }
 
 .floating-nav__item.is-active {
-  background:
-    linear-gradient(90deg, rgba(15, 108, 189, 0.18), rgba(135, 100, 184, 0.12)),
-    var(--color-brand-subtle);
-  color: var(--color-brand);
+  background: var(--color-brand);
+  color: #000000;
   box-shadow: inset 3px 0 0 var(--color-brand);
 }
 
@@ -336,40 +339,25 @@ svg {
   max-width: 860px;
   margin: 0;
   color: var(--color-text);
+  -webkit-text-fill-color: var(--color-text);
   font-size: 64px;
   font-weight: 650;
   line-height: 1.04;
-  background: linear-gradient(90deg, var(--color-text), var(--color-text));
-  -webkit-background-clip: text;
-  background-clip: text;
   transition:
     color 220ms ease,
-    background 260ms ease,
     filter 260ms ease,
+    text-shadow 260ms ease,
     transform 260ms var(--motion-expressive);
 }
 
 .hero-copy h1:hover,
 .section-header h2:hover,
 .case-detail-hero h2:hover {
-  color: transparent;
-  background: linear-gradient(92deg, var(--color-brand), var(--color-accent-violet), var(--color-accent-rose), var(--color-accent-orange));
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  filter: drop-shadow(0 10px 22px rgba(15, 108, 189, 0.16));
-  transform: translateY(-4px);
-  animation: titleColorSweep 1.4s ease-in-out infinite alternate;
-}
-
-@keyframes titleColorSweep {
-  from {
-    background-position: 0% 50%;
-  }
-
-  to {
-    background-position: 100% 50%;
-  }
+  color: var(--color-text);
+  -webkit-text-fill-color: var(--color-text);
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.22));
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.88);
+  transform: translateY(-2px);
 }
 
 .hero-lede {
@@ -402,7 +390,7 @@ svg {
   position: relative;
   isolation: isolate;
   --card-accent: var(--color-brand);
-  --card-soft: rgba(15, 108, 189, 0.1);
+  --card-soft: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--color-stroke-subtle);
   border-radius: var(--radius);
   background: var(--color-surface);
@@ -425,8 +413,8 @@ svg {
   z-index: -1;
   border-radius: inherit;
   background:
-    linear-gradient(135deg, var(--card-soft), transparent 54%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.72));
+    linear-gradient(135deg, var(--card-soft), transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
   opacity: 0;
   content: "";
   transition: opacity 220ms ease;
@@ -439,8 +427,8 @@ svg {
 .detail-card:hover,
 .insight-card:hover,
 .skill-card:hover {
-  border-color: color-mix(in srgb, var(--card-accent) 46%, var(--color-stroke-subtle));
-  box-shadow: 0 24px 56px color-mix(in srgb, var(--card-accent) 18%, transparent);
+  border-color: var(--color-brand);
+  box-shadow: 10px 10px 0 rgba(255, 255, 255, 0.12);
   transform: translateY(-7px);
 }
 
@@ -463,41 +451,41 @@ svg {
 .journey-card:nth-child(1),
 .skills-grid .skill-card:nth-child(1) {
   --card-accent: var(--color-brand);
-  --card-soft: rgba(15, 108, 189, 0.14);
+  --card-soft: rgba(255, 255, 255, 0.06);
 }
 
 .hero-stats div:nth-child(2),
 .journey-card:nth-child(2),
 .skills-grid .skill-card:nth-child(2) {
   --card-accent: var(--color-accent-violet);
-  --card-soft: rgba(135, 100, 184, 0.16);
+  --card-soft: rgba(255, 255, 255, 0.06);
 }
 
 .hero-stats div:nth-child(3),
 .journey-card:nth-child(3),
 .skills-grid .skill-card:nth-child(3) {
   --card-accent: var(--color-accent-rose);
-  --card-soft: rgba(227, 0, 140, 0.13);
+  --card-soft: rgba(255, 255, 255, 0.06);
 }
 
 .journey-card:nth-child(4),
 .skills-grid .skill-card:nth-child(4) {
   --card-accent: var(--color-accent-cyan);
-  --card-soft: rgba(0, 183, 195, 0.16);
+  --card-soft: rgba(255, 255, 255, 0.06);
 }
 
 .skills-grid .skill-card:nth-child(5),
 .feedback-panel,
 .results-panel {
   --card-accent: var(--color-accent-green);
-  --card-soft: rgba(19, 161, 14, 0.14);
+  --card-soft: rgba(255, 255, 255, 0.06);
 }
 
 .hero-stats dt {
   color: var(--card-accent);
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 700;
-  line-height: 34px;
+  line-height: 30px;
 }
 
 .hero-stats dd {
@@ -515,16 +503,14 @@ svg {
 .section-header h2 {
   margin: 0;
   color: var(--color-text);
+  -webkit-text-fill-color: var(--color-text);
   font-size: 44px;
   font-weight: 650;
   line-height: 1.1;
-  background: linear-gradient(90deg, var(--color-text), var(--color-text));
-  -webkit-background-clip: text;
-  background-clip: text;
   transition:
     color 220ms ease,
-    background 260ms ease,
     filter 260ms ease,
+    text-shadow 260ms ease,
     transform 260ms var(--motion-expressive);
 }
 
@@ -553,8 +539,8 @@ svg {
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
-  background: var(--color-brand-subtle);
-  color: var(--color-brand);
+  background: var(--color-brand);
+  color: #000000;
   font-size: 13px;
   font-weight: 700;
   line-height: 1;
@@ -672,9 +658,9 @@ svg {
 .focus-cloud span:hover,
 .tag-row span:hover,
 .skill-card__body span:hover {
-  border-color: rgba(15, 108, 189, 0.34);
-  background: var(--color-brand-subtle);
-  color: var(--color-brand);
+  border-color: var(--color-brand);
+  background: var(--color-brand);
+  color: #000000;
   transform: translateY(-3px);
 }
 
@@ -685,7 +671,7 @@ svg {
 
 .case-selection-card {
   --card-accent: var(--color-accent-orange);
-  --card-soft: rgba(255, 185, 0, 0.18);
+  --card-soft: rgba(255, 255, 255, 0.06);
   min-height: 188px;
   padding: 24px;
   display: grid;
@@ -699,8 +685,8 @@ svg {
 }
 
 .case-selection-card:hover {
-  border-color: rgba(255, 185, 0, 0.52);
-  box-shadow: 0 26px 56px rgba(255, 185, 0, 0.18);
+  border-color: var(--color-brand);
+  box-shadow: 10px 10px 0 rgba(255, 255, 255, 0.12);
   transform: translateY(-7px);
 }
 
@@ -711,8 +697,8 @@ svg {
   align-items: center;
   justify-content: center;
   border-radius: var(--radius);
-  background: var(--color-warning);
-  color: #8f6f00;
+  background: var(--color-brand);
+  color: #000000;
   transition:
     background 180ms ease,
     color 180ms ease,
@@ -720,8 +706,9 @@ svg {
 }
 
 .case-selection-card:hover .case-selection-card__icon {
-  background: linear-gradient(135deg, var(--color-accent-orange), var(--color-accent-coral));
-  color: #ffffff;
+  background: #000000;
+  color: var(--color-brand);
+  box-shadow: inset 0 0 0 1px var(--color-brand);
   transform: rotate(-4deg) scale(1.06);
 }
 
@@ -792,7 +779,7 @@ svg {
   gap: 8px;
   border: 1px solid var(--color-stroke);
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(0, 0, 0, 0.78);
   color: var(--color-brand);
   box-shadow: var(--shadow-2);
   font-size: 14px;
@@ -812,7 +799,7 @@ svg {
 
 .detail-back-link:hover,
 .detail-back-link:focus-visible {
-  border-color: rgba(15, 108, 189, 0.38);
+  border-color: var(--color-brand);
   box-shadow: var(--shadow-8);
   transform: translateY(-2px);
   outline: none;
@@ -830,16 +817,14 @@ svg {
 .case-detail-hero h2 {
   margin: 0;
   color: var(--color-text);
+  -webkit-text-fill-color: var(--color-text);
   font-size: 52px;
   font-weight: 650;
   line-height: 1.06;
-  background: linear-gradient(90deg, var(--color-text), var(--color-text));
-  -webkit-background-clip: text;
-  background-clip: text;
   transition:
     color 220ms ease,
-    background 260ms ease,
     filter 260ms ease,
+    text-shadow 260ms ease,
     transform 260ms var(--motion-expressive);
 }
 
@@ -909,8 +894,9 @@ svg {
 
 .case-live-link:hover,
 .case-live-link:focus-visible {
-  border-color: rgba(15, 108, 189, 0.34);
-  background: var(--color-brand-subtle);
+  border-color: var(--color-brand);
+  background: var(--color-brand);
+  color: #000000;
   box-shadow: var(--shadow-8);
   outline: none;
   transform: translateY(-2px);
@@ -950,7 +936,7 @@ svg {
   border: 1px solid var(--color-stroke-subtle);
   border-radius: var(--radius);
   background: var(--color-surface-solid);
-  box-shadow: 0 14px 34px rgba(36, 36, 36, 0.08);
+  box-shadow: 0 18px 48px rgba(255, 255, 255, 0.06);
 }
 
 .snippet-slide-frame {
@@ -960,7 +946,7 @@ svg {
   place-items: center;
   border-bottom: 1px solid var(--color-stroke-subtle);
   background:
-    linear-gradient(180deg, #ffffff, #f8fafc);
+    linear-gradient(180deg, #111111, #050505);
 }
 
 .snippet-slide-frame img {
@@ -992,9 +978,9 @@ svg {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(209, 209, 209, 0.82);
+  border: 1px solid var(--color-stroke);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.86);
+  background: rgba(0, 0, 0, 0.86);
   color: var(--color-brand);
   box-shadow: var(--shadow-8);
   cursor: pointer;
@@ -1008,8 +994,9 @@ svg {
 
 .snippet-slide-button:hover,
 .snippet-slide-button:focus-visible {
-  border-color: rgba(15, 108, 189, 0.32);
+  border-color: var(--color-brand);
   background: #ffffff;
+  color: #000000;
   box-shadow: var(--shadow-16);
   outline: none;
   transform: translateY(-50%) scale(1.06);
@@ -1087,8 +1074,9 @@ svg {
 
 .snippet-slide-open:hover,
 .snippet-slide-open:focus-visible {
-  border-color: rgba(15, 108, 189, 0.32);
-  background: var(--color-brand-subtle);
+  border-color: var(--color-brand);
+  background: var(--color-brand);
+  color: #000000;
   outline: none;
   transform: translateY(-2px);
 }
@@ -1107,13 +1095,13 @@ svg {
 
 .detail-card {
   --card-accent: var(--color-brand);
-  --card-soft: rgba(15, 108, 189, 0.12);
+  --card-soft: rgba(255, 255, 255, 0.06);
   padding: 22px;
 }
 
 .detail-grid .detail-card:nth-child(2) {
   --card-accent: var(--color-accent-violet);
-  --card-soft: rgba(135, 100, 184, 0.14);
+  --card-soft: rgba(255, 255, 255, 0.06);
 }
 
 .detail-card__heading {
@@ -1168,19 +1156,19 @@ svg {
 
 .insight-card {
   --card-accent: var(--color-accent-cyan);
-  --card-soft: rgba(0, 183, 195, 0.13);
+  --card-soft: rgba(255, 255, 255, 0.06);
   min-height: 164px;
   padding: 20px;
 }
 
 .insight-card:nth-child(2n) {
   --card-accent: var(--color-accent-rose);
-  --card-soft: rgba(227, 0, 140, 0.12);
+  --card-soft: rgba(255, 255, 255, 0.06);
 }
 
 .insight-card:nth-child(3n) {
   --card-accent: var(--color-accent-orange);
-  --card-soft: rgba(255, 185, 0, 0.16);
+  --card-soft: rgba(255, 255, 255, 0.06);
 }
 
 .insight-card h4 {
@@ -1205,9 +1193,9 @@ svg {
   grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
   gap: 28px;
   align-items: start;
-  border: 1px solid #cfe4fa;
+  border: 1px solid var(--color-stroke);
   border-radius: var(--radius);
-  background: #f8fbff;
+  background: var(--color-surface-solid);
 }
 
 .results-panel p:not(.eyebrow) {
@@ -1240,8 +1228,8 @@ svg {
   gap: 12px;
   border-bottom: 1px solid var(--color-stroke-subtle);
   background:
-    linear-gradient(135deg, var(--card-soft), rgba(255, 255, 255, 0.74)),
-    #f8fbff;
+    linear-gradient(135deg, var(--card-soft), rgba(255, 255, 255, 0.02)),
+    #0d0d0d;
 }
 
 .skill-card__header svg {
@@ -1272,7 +1260,7 @@ svg {
 
 .skill-card__body span {
   padding: 6px 8px;
-  background: #ffffff;
+  background: var(--color-surface-solid);
 }
 
 .footer {
