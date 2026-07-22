@@ -1,6 +1,6 @@
 :root {
-  --color-bg: #000000;
-  --color-bg-strong: #000000;
+  --color-bg: #111111;
+  --color-bg-strong: #111111;
   --color-surface: rgba(8, 8, 8, 0.94);
   --color-surface-solid: #050505;
   --color-surface-subtle: #101010;
@@ -12,6 +12,12 @@
   --color-brand: #ffffff;
   --color-brand-hover: #e8e8e8;
   --color-brand-subtle: #151515;
+  --color-button-amber: #ffb02e;
+  --color-button-amber-hover: #ffc24d;
+  --color-button-amber-border: #f6b737;
+  --color-button-amber-text: #17110a;
+  --shadow-button-amber: 7px 7px 0 rgba(255, 176, 46, 0.28);
+  --shadow-button-amber-hover: 9px 9px 0 rgba(255, 176, 46, 0.34);
   --color-accent-rose: #ffffff;
   --color-accent-violet: #ffffff;
   --color-accent-cyan: #ffffff;
@@ -43,7 +49,7 @@ html {
 body {
   min-height: 100%;
   margin: 0;
-  background: #000000;
+  background: var(--color-bg);
   color: var(--color-text);
   font-family:
     "Segoe UI Variable",
@@ -84,10 +90,7 @@ svg {
   min-height: 100vh;
   padding: 24px 80px 0;
   overflow-x: hidden;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.52) 58%, rgba(0, 0, 0, 0.78) 100%),
-    url("/backgrounds/dark-flowers.jpg") center 24% / cover no-repeat fixed,
-    #000000;
+  background: var(--color-bg);
 }
 
 .page-main,
@@ -125,7 +128,6 @@ svg {
   border: 1px solid var(--color-stroke);
   border-radius: var(--radius);
   background: rgba(0, 0, 0, 0.72);
-  box-shadow: 0 14px 0 rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(22px);
 }
 
@@ -197,31 +199,33 @@ svg {
 }
 
 .button--primary {
-  border-color: var(--color-brand);
-  background: var(--color-brand);
-  color: #000000;
-  box-shadow: 7px 7px 0 rgba(255, 255, 255, 0.16);
+  border-color: var(--color-button-amber-border);
+  background: var(--color-button-amber);
+  color: var(--color-button-amber-text);
+  box-shadow: var(--shadow-button-amber);
 }
 
 .button--primary:hover,
 .button--primary:focus-visible {
-  background: transparent;
-  color: var(--color-brand);
-  box-shadow: 9px 9px 0 rgba(255, 255, 255, 0.16);
+  border-color: var(--color-button-amber-hover);
+  background: var(--color-button-amber-hover);
+  color: var(--color-button-amber-text);
+  box-shadow: var(--shadow-button-amber-hover);
 }
 
 .button--subtle {
-  border-color: var(--color-stroke);
+  border-color: var(--color-button-amber-border);
   background: transparent;
-  color: var(--color-text);
+  color: var(--color-button-amber);
+  box-shadow: var(--shadow-button-amber);
 }
 
 .button--subtle:hover,
 .button--subtle:focus-visible {
-  border-color: var(--color-brand);
-  background: var(--color-brand);
-  color: #000000;
-  box-shadow: var(--shadow-2);
+  border-color: var(--color-button-amber-hover);
+  background: var(--color-button-amber-hover);
+  color: var(--color-button-amber-text);
+  box-shadow: var(--shadow-button-amber-hover);
 }
 
 .floating-nav {
@@ -285,15 +289,16 @@ svg {
 }
 
 .floating-nav__item:hover {
-  background: var(--color-brand);
-  color: #000000;
+  background: var(--color-button-amber);
+  color: var(--color-button-amber-text);
+  box-shadow: var(--shadow-button-amber);
   transform: translateX(-3px);
 }
 
 .floating-nav__item.is-active {
-  background: var(--color-brand);
-  color: #000000;
-  box-shadow: inset 3px 0 0 var(--color-brand);
+  background: var(--color-button-amber);
+  color: var(--color-button-amber-text);
+  box-shadow: inset 3px 0 0 var(--color-button-amber-border), var(--shadow-button-amber);
 }
 
 .floating-nav--case-detail {
@@ -706,7 +711,7 @@ svg {
 }
 
 .case-selection-card:hover .case-selection-card__icon {
-  background: #000000;
+  background: var(--color-bg);
   color: var(--color-brand);
   box-shadow: inset 0 0 0 1px var(--color-brand);
   transform: rotate(-4deg) scale(1.06);
@@ -894,10 +899,10 @@ svg {
 
 .case-live-link:hover,
 .case-live-link:focus-visible {
-  border-color: var(--color-brand);
-  background: var(--color-brand);
-  color: #000000;
-  box-shadow: var(--shadow-8);
+  border-color: var(--color-button-amber-hover);
+  background: var(--color-button-amber-hover);
+  color: var(--color-button-amber-text);
+  box-shadow: var(--shadow-button-amber-hover);
   outline: none;
   transform: translateY(-2px);
 }
@@ -994,10 +999,10 @@ svg {
 
 .snippet-slide-button:hover,
 .snippet-slide-button:focus-visible {
-  border-color: var(--color-brand);
-  background: #ffffff;
-  color: #000000;
-  box-shadow: var(--shadow-16);
+  border-color: var(--color-button-amber-hover);
+  background: var(--color-button-amber-hover);
+  color: var(--color-button-amber-text);
+  box-shadow: var(--shadow-button-amber-hover);
   outline: none;
   transform: translateY(-50%) scale(1.06);
 }
@@ -1074,9 +1079,9 @@ svg {
 
 .snippet-slide-open:hover,
 .snippet-slide-open:focus-visible {
-  border-color: var(--color-brand);
-  background: var(--color-brand);
-  color: #000000;
+  border-color: var(--color-button-amber-hover);
+  background: var(--color-button-amber-hover);
+  color: var(--color-button-amber-text);
   outline: none;
   transform: translateY(-2px);
 }
