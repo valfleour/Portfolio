@@ -1,101 +1,28 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { FluentProvider, webLightTheme } from "@fluentui/react-components";
-import {
-  ArrowRight24Regular,
-  BookOpen24Regular,
-  Briefcase24Regular,
-  CheckmarkCircle24Regular,
-  Document24Regular,
-  FolderOpen24Regular,
-  Home24Regular,
-  Mail24Regular,
-  Open24Regular,
-  Person24Regular,
-  Sparkle24Regular,
-} from "@fluentui/react-icons";
 import "./styles.css";
 
+const portraitSrc = "/assets/aldren-sketch.png";
+
+const experiences = [
+  {
+    title: "Product Owner",
+    system: "Turnover System & Instrument Loop System",
+    period: "Nov 2024 - Current",
+  },
+  {
+    title: "Turnover / Completions Engineer",
+    system: "",
+    period: "Jul 2017 - Nov 2024 . 7 yrs 4 mos",
+  },
+  {
+    title: "Engineer / Field Team Leader",
+    system: "",
+    period: "Oct 2015 - Dec 2016 . 1 yr 3 mos",
+  },
+];
+
 const skills = [
-  {
-    title: "Product Ownership",
-    items: [
-      "Product Ownership",
-      "Product Backlog Management",
-      "Backlog Refinement",
-      "Product Prioritization",
-      "User Story Writing",
-      "User Story Mapping",
-      "Acceptance Criteria",
-      "Agile / Scrum",
-      "Sprint Planning",
-      "Release Validation",
-    ],
-  },
-  {
-    title: "Business Analysis & Product Strategy",
-    items: [
-      "Requirements Gathering",
-      "Business Analysis",
-      "Process Analysis",
-      "Workflow Optimization",
-      "Product Discovery",
-      "Business Process Improvement",
-      "Domain-Driven Design (DDD)",
-      "Data-Driven Decision Making",
-    ],
-  },
-  {
-    title: "Stakeholder & Delivery Collaboration",
-    items: [
-      "Stakeholder Management",
-      "Cross-functional Collaboration",
-      "Developer Collaboration",
-      "Daily Standups",
-      "Sprint Reviews & Retrospectives",
-      "User Feedback Management",
-      "Product Documentation",
-      "Technical Documentation",
-    ],
-  },
-  {
-    title: "Product Quality & Continuous Improvement",
-    items: [
-      "Feature Validation",
-      "Functional Testing",
-      "Usability Improvements",
-      "Process Optimization",
-      "Product Quality Improvement",
-      "Release Readiness",
-      "Continuous Improvement",
-      "User Adoption Support",
-    ],
-  },
-  {
-    title: "UX for Product Ownership",
-    items: [
-      "User-Centered Design",
-      "UX Research",
-      "Design Thinking",
-      "Information Architecture",
-      "Interaction Design",
-      "Usability Testing",
-      "Wireframing",
-      "Figma",
-    ],
-  },
-];
-
-const productFeedback = [
-  "Unclear product requirements",
-  "Backlog items without business value",
-  "Workflows misaligned with site operations",
-  "Slow approvals and handover bottlenecks",
-  "Features that need validation before release",
-  "Documentation gaps that slow adoption",
-];
-
-const currentFocus = [
   "Product Ownership",
   "Agile Methodologies",
   "Scrum",
@@ -109,925 +36,926 @@ const currentFocus = [
   "Stakeholder Management",
   "Sprint Planning",
   "Business Analysis",
-  "User-Centered Design",
-  "Design Thinking",
   "Figma",
-  "Usability Testing",
+  "Design Thinking",
+  "User-Centered Design",
   "Generative AI",
-  "Problem Solving",
   "Leadership",
+  "Usability Testing",
+  "Problem Solving",
 ];
 
-const journeySteps = [
+const strengths = [
   {
-    label: "Engineering operations",
-    detail: "Turnover, test packs, spoolgen, commissioning, and handover work.",
+    label: "01",
+    title: "Engineering operations",
+    description:
+      "Turnover, test packs, spoolgen, commissioning, and handover work.",
   },
   {
-    label: "Domain understanding",
-    detail: "Seeing how field execution, approvals, reports, and handover workflows really behave.",
+    label: "02",
+    title: "Domain understanding",
+    description:
+      "Seeing how field execution, approvals, reports, and handover workflows really behave.",
   },
   {
-    label: "Product ownership",
-    detail: "Owning backlog decisions, user stories, acceptance criteria, validation, and release readiness.",
+    label: "03",
+    title: "Product ownership",
+    description:
+      "Owning backlog decisions, user stories, acceptance criteria, validation, and release readiness.",
   },
   {
-    label: "UX-informed delivery",
-    detail: "Applying self-directed UI/UX learning to make product decisions clearer and easier to adopt.",
-  },
-];
-
-const caseStudies = [
-  {
-    id: "skill-matrix-application",
-    eyebrow: "Product Ownership Case Study",
-    title: "Skill Matrix Application",
-    summary:
-      "A web-based workforce capability management platform designed to help organizations visualize, manage, and evaluate employee skills across departments, teams, and company positions.",
-    liveUrl: "https://skillmatrix-client.onrender.com/",
-    snippets: {
-      eyebrow: "Interface snippets",
-      title: "Selected product screens",
-      items: [
-        {
-          title: "Landing page",
-          description: "A product-facing entry page explaining the value of capability mapping and evidence-based growth.",
-          src: "/case-studies/skillmatrix-gallery/skillmatrix-landing-page.png",
-          alt: "SkillMatrix landing page hero with product brand, call to action, and 3D cube visual.",
-        },
-        {
-          title: "Admin dashboard",
-          description: "A system-level summary of organization records, skills, pending actions, and setup alerts.",
-          src: "/case-studies/skillmatrix-gallery/admin-dashboard.png",
-          alt: "SkillMatrix admin dashboard showing organization metrics and pending actions.",
-        },
-        {
-          title: "Organization team view",
-          description: "A filtered table view for browsing teams, departments, sections, and team assignments.",
-          src: "/case-studies/skillmatrix-gallery/admin-organization.png",
-          alt: "SkillMatrix organization screen showing team records and hierarchy filters.",
-        },
-        {
-          title: "Role hierarchy",
-          description: "Role levels and permission-oriented actions organized for administrator maintenance.",
-          src: "/case-studies/skillmatrix-gallery/admin-roles.png",
-          alt: "SkillMatrix roles screen showing hierarchy levels and role management actions.",
-        },
-        {
-          title: "Skill category management",
-          description: "Expandable skill categories with related entries, descriptions, and admin actions.",
-          src: "/case-studies/skillmatrix-gallery/admin-skills.png",
-          alt: "SkillMatrix skills screen showing categories, skills, and admin actions.",
-        },
-        {
-          title: "Member skill matrix",
-          description: "A proficiency matrix that maps personal skills across categories and level bands.",
-          src: "/case-studies/skillmatrix-gallery/aldren-skills.png",
-          alt: "SkillMatrix member skills screen showing a proficiency matrix by category.",
-        },
-        {
-          title: "Member dashboard",
-          description: "A user dashboard for tracking skill progress, endorsements, assessments, and review signals.",
-          src: "/case-studies/skillmatrix-gallery/aldren-dashboard.png",
-          alt: "SkillMatrix member dashboard showing personal skill metrics and analytics cards.",
-        },
-      ],
-    },
-    tags: [
-      "Enterprise UX",
-      "Admin workflows",
-      "Skill assessment",
-      "Organizational visibility",
-    ],
-    problemAreas: [
-      "Difficulty tracking employee competencies",
-      "Lack of visibility into skill gaps",
-      "Manual and inconsistent skill evaluations",
-      "Limited alignment between workforce capability and project requirements",
-    ],
-    systemIncludes: [
-      "Skill assessment and proficiency tracking",
-      "Organizational hierarchy management",
-      "Role and permission management",
-      "Team and department visualization",
-      "User approval workflows",
-      "Administrative dashboards and analytics",
-    ],
-    designChallenges: [
-      {
-        title: "Complex Organizational Structure",
-        body: "Departments, sections, teams, roles, and company positions needed to feel connected without overwhelming users.",
-      },
-      {
-        title: "Large Amount of Data",
-        body: "Skill matrices include proficiency levels, employee records, approval statuses, and assignments, so dense information had to stay scannable.",
-      },
-      {
-        title: "Different User Types",
-        body: "Administrators, managers, and employees required different access levels while sharing one consistent product experience.",
-      },
-      {
-        title: "Administrative Friction",
-        body: "Repeated setup tasks needed fewer clicks, clearer grouping, and better feedback than traditional enterprise screens.",
-      },
-    ],
-    researchFindings: [
-      {
-        title: "Visibility mattered most",
-        body: "Users wanted team coverage, missing competencies, pending approvals, and readiness visible without digging through reports.",
-      },
-      {
-        title: "Admin users needed speed",
-        body: "Role assignment, team updates, user management, and request review were recurring tasks that needed direct paths.",
-      },
-      {
-        title: "Clear hierarchy reduced confusion",
-        body: "Users understood the system faster when departments, sections, teams, and roles were visually grouped.",
-      },
-      {
-        title: "Immediate feedback built confidence",
-        body: "Status indicators, validation feedback, confirmations, and progress visibility made high-impact actions easier to complete.",
-      },
-    ],
-    solutions: [
-      {
-        title: "Dashboard-centered experience",
-        body: "A centralized dashboard gives access to user statistics, pending approvals, organizational metrics, missing assignments, and administrative alerts.",
-      },
-      {
-        title: "Simplified navigation",
-        body: "The sidebar was organized into clear zones: Dashboard, Organization, Roles, Users, and Skills.",
-      },
-      {
-        title: "Hierarchical information design",
-        body: "Department, Section, and Team structures were grouped into a clearer mental model.",
-      },
-      {
-        title: "Reusable component patterns",
-        body: "Tables, cards, forms, dialogs, status labels, and actions share consistent visual and interaction rules.",
-      },
-      {
-        title: "Reduced form complexity",
-        body: "Administrative forms were grouped, simplified, and tuned to reduce errors during repeated setup work.",
-      },
-      {
-        title: "Role-based experience",
-        body: "The interface adapts to permissions so each user focuses on relevant features.",
-      },
-    ],
-    results: [
-      "Improved administrative efficiency",
-      "Better visibility into skill gaps and readiness",
-      "Reduced cognitive overload",
-      "A more scalable UX foundation",
-      "Stronger alignment with real operational workflows",
-    ],
-    conclusion:
-      "The Skill Matrix Application shows how a dense administrative system can become more intuitive when hierarchy, workflow efficiency, and real operational behavior guide the interface.",
+    label: "04",
+    title: "UX-informed delivery",
+    description:
+      "Applying self-directed UI/UX learning to make product decisions clearer and easier to adopt.",
   },
 ];
 
-const caseStudyDetailSections = [
-  { id: "project-overview", label: "Project overview", icon: BookOpen24Regular },
-  { id: "design-challenge", label: "Design challenge", icon: Briefcase24Regular },
-  {
-    id: "user-research-findings",
-    label: "User research findings",
-    icon: Person24Regular,
-  },
-  {
-    id: "design-solutions-implemented",
-    label: "Design solutions implemented",
-    icon: Sparkle24Regular,
-  },
-  { id: "results-achieved", label: "Results achieved", icon: CheckmarkCircle24Regular },
+const drivers = [
+  "Unclear product requirements",
+  "Backlog items without business value",
+  "Workflows misaligned with actual user operations",
+  "Slow approvals and handover bottlenecks",
+  "Features that need validation before release",
+  "Documentation gaps that slow adoption",
 ];
 
-function getCaseStudyDetailHash(caseStudy, sectionId = "") {
-  return `#case-study/${caseStudy.id}${sectionId ? `/${sectionId}` : ""}`;
-}
+const beyondAreas = [
+  {
+    label: "01",
+    title: "Product Strategy & Roadmaps",
+    body: (
+      <>
+        I create and maintain <strong>product roadmaps</strong> that connect
+        business requirements, user needs, technical priorities, and future
+        improvements. I use them not only to communicate what we are building,
+        but also to provide stakeholders and the team with a clear view of where
+        the product is going and why.
+      </>
+    ),
+  },
+  {
+    label: "02",
+    title: "Dashboards, KPIs & Targets",
+    hasDashboardPreview: true,
+    body: (
+      <>
+        I build my own <strong>dashboards, KPIs, and performance targets</strong>{" "}
+        to turn development and operational data into information that can
+        support decisions. I track delivery progress, sprint performance,
+        velocity, completion trends, product adoption, and other indicators that
+        show where we are performing well and where improvement is needed.
+      </>
+    ),
+    flow: ["Data", "Insight", "Decision", "Improvement"],
+  },
+  {
+    label: "03",
+    title: "UI/UX & AI-Assisted Frontend Development",
+    body: (
+      <>
+        I take a hands-on role in improving user experience. When backend data
+        and functionality already exist, I look for ways to improve the product
+        through the <strong>frontend first</strong>, rather than introducing
+        unnecessary backend changes. I design workflows, dashboards, screens,
+        and interface improvements using <strong>UI/UX principles and Figma</strong>,
+        then use <strong>AI-assisted development tools such as Codex and GitHub Copilot</strong>{" "}
+        to turn ideas into working frontend concepts and prototypes.
+      </>
+    ),
+    flow: [
+      "Problem",
+      "UX Analysis",
+      "UI Design",
+      "AI-Assisted Prototype",
+      "Validation",
+      "Development",
+    ],
+  },
+  {
+    label: "04",
+    title: "Continuous Improvement Beyond the Product",
+    body: (
+      <>
+        I do not limit improvement initiatives to features within my own product.
+        When I identify a problem, inefficiency, or broader opportunity, I
+        research it, develop a solution or concept, and prepare{" "}
+        <strong>structured proposals for team managers and stakeholders</strong>.
+        These proposals may involve product improvements, internal processes,
+        reporting and analytics, digital tools, user experience, or initiatives
+        that improve how the organization works.
+      </>
+    ),
+  },
+];
 
-function getCaseStudyRouteFromHash(hash) {
-  const match = hash.match(/^#case-study\/([^/]+)(?:\/([^/]+))?$/);
+const dashboardGauges = [
+  { title: "New Feature", value: 10, max: 31, accent: "#f21cdf" },
+  { title: "Enhancement", value: 24, max: 52, accent: "#1787f2" },
+  { title: "Performance", value: 5, max: 5, accent: "#1787f2" },
+  { title: "UI/UX", value: 17, max: 25, accent: "#1597ff" },
+  { title: "Technical Debt", value: 6, max: 28, accent: "#1b42d9" },
+];
 
-  if (!match) {
-    return { caseStudy: null, caseStudySection: "" };
-  }
+const dashboardLabels = [
+  ["Strategic", "High Impact / High Effort"],
+  ["Big Wins", "High Impact / Medium Effort"],
+  ["Quick Wins", "High Impact / Low Effort"],
+  ["Heavy Lift", "Medium Impact / High Effort"],
+  ["Steady Wins", "Medium Impact / Medium Effort"],
+  ["Easy Wins", "Medium Impact / Low Effort"],
+  ["Avoid", "Low Impact / High Effort"],
+  ["Optional", "Low Impact / Medium Effort"],
+  ["Fill-ins", "Low Impact / Low Effort"],
+];
 
-  const caseStudy = caseStudies.find((item) => item.id === match[1]) ?? null;
-  const sectionId = caseStudyDetailSections.some((section) => section.id === match[2])
-    ? match[2]
-    : "";
+const dashboardLineSeries = [
+  {
+    name: "Strategic",
+    color: "#d9b400",
+    points: "22,150 144,132 266,104 388,74 510,46 632,20",
+  },
+  {
+    name: "Steady Wins",
+    color: "#7d63d9",
+    points: "20,160 142,140 264,112 386,88 508,60 630,36",
+  },
+  {
+    name: "Quick Wins",
+    color: "#e0489e",
+    points: "20,154 142,146 264,128 386,110 508,86 630,58",
+  },
+  {
+    name: "Optional",
+    color: "#7d148f",
+    points: "20,168 142,158 264,140 386,122 508,104 630,82",
+  },
+  {
+    name: "Fill-ins",
+    color: "#ff7f35",
+    points: "20,176 142,170 264,154 386,134 508,112 630,92",
+  },
+  {
+    name: "Easy Wins",
+    color: "#1434c8",
+    points: "20,190 142,188 264,176 386,162 508,150 630,136",
+  },
+  {
+    name: "Big Wins",
+    color: "#19a7ff",
+    points: "20,192 142,190 264,182 386,170 508,160 630,150",
+  },
+];
 
-  return {
-    caseStudy,
-    caseStudySection: caseStudy ? sectionId : "",
-  };
-}
+const sprintCompletion = [100, 100, 100, 96, 97, 100];
+const storyPointPairs = [
+  [0, 21],
+  [7, 22],
+  [8, 23],
+  [8, 16],
+  [10, 20],
+  [4, 18],
+];
+const issueCounts = [
+  [17, 0],
+  [7, 0],
+  [9, 0],
+  [10, 1],
+  [10, 1],
+  [8, 0],
+];
 
-function getCaseStudyDetailNavItems(caseStudy) {
-  return caseStudyDetailSections.map((section) => ({
-    ...section,
-    href: getCaseStudyDetailHash(caseStudy, section.id),
-  }));
-}
-
-function useHashRoute() {
-  const [hash, setHash] = React.useState(() => window.location.hash);
+function PixelRevealPortrait({ src, alt }) {
+  const canvasRef = React.useRef(null);
+  const [isRevealing, setIsRevealing] = React.useState(false);
+  const [isComplete, setIsComplete] = React.useState(false);
 
   React.useEffect(() => {
-    const updateHash = () => {
-      setHash(window.location.hash);
-    };
+    const canvas = canvasRef.current;
+    const context = canvas?.getContext("2d");
 
-    window.addEventListener("hashchange", updateHash);
-
-    return () => {
-      window.removeEventListener("hashchange", updateHash);
-    };
-  }, []);
-
-  return {
-    hash,
-    ...getCaseStudyRouteFromHash(hash),
-  };
-}
-
-function useScrollRestoration(hash, isCaseDetailPage, caseStudySection) {
-  React.useEffect(() => {
-    if (isCaseDetailPage) {
-      if (!caseStudySection) {
-        window.scrollTo({ top: 0, behavior: "auto" });
-        return undefined;
-      }
-
-      const frame = window.requestAnimationFrame(() => {
-        document.getElementById(caseStudySection)?.scrollIntoView({ block: "start" });
-      });
-
-      return () => {
-        window.cancelAnimationFrame(frame);
-      };
-    }
-
-    const targetId = hash?.startsWith("#") ? hash.slice(1) : "";
-
-    if (!targetId) {
-      window.scrollTo({ top: 0, behavior: "auto" });
+    if (!canvas || !context) {
       return undefined;
     }
 
-    const frame = window.requestAnimationFrame(() => {
-      document.getElementById(targetId)?.scrollIntoView({ block: "start" });
-    });
+    let animationFrame = 0;
+    let delayTimer = 0;
+    let isCancelled = false;
+    const image = new Image();
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
-    return () => {
-      window.cancelAnimationFrame(frame);
-    };
-  }, [hash, isCaseDetailPage, caseStudySection]);
-}
+    image.decoding = "async";
+    image.src = src;
 
-function useCaseStudyActiveSection(caseStudySection) {
-  const [activeSection, setActiveSection] = React.useState(
-    caseStudySection || "project-overview",
-  );
-
-  React.useEffect(() => {
-    setActiveSection(caseStudySection || "project-overview");
-  }, [caseStudySection]);
-
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visibleEntry) {
-          setActiveSection(visibleEntry.target.id);
-        }
-      },
-      {
-        rootMargin: "-28% 0px -56% 0px",
-        threshold: [0.1, 0.24, 0.4, 0.6],
-      },
-    );
-
-    caseStudyDetailSections.forEach(({ id }) => {
-      const node = document.getElementById(id);
-      if (node) {
-        observer.observe(node);
+    image.onload = () => {
+      if (isCancelled) {
+        return;
       }
-    });
+
+      canvas.width = image.naturalWidth;
+      canvas.height = image.naturalHeight;
+
+      if (prefersReducedMotion) {
+        setIsComplete(true);
+        return;
+      }
+
+      const duration = 5000;
+      const delay = 650;
+      const cellSize = Math.max(18, Math.round(image.naturalWidth / 38));
+      const cells = [];
+
+      for (let y = 0; y < image.naturalHeight; y += cellSize) {
+        for (let x = 0; x < image.naturalWidth; x += cellSize) {
+          cells.push({
+            x,
+            y,
+            width: Math.min(cellSize, image.naturalWidth - x),
+            height: Math.min(cellSize, image.naturalHeight - y),
+          });
+        }
+      }
+
+      for (let index = cells.length - 1; index > 0; index -= 1) {
+        const swapIndex = Math.floor(Math.random() * (index + 1));
+        [cells[index], cells[swapIndex]] = [cells[swapIndex], cells[index]];
+      }
+
+      delayTimer = window.setTimeout(() => {
+        setIsRevealing(true);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.globalAlpha = 1;
+        context.imageSmoothingEnabled = false;
+        let revealedCellCount = 0;
+
+        const drawFrame = (startTime) => (currentTime) => {
+          if (isCancelled) {
+            return;
+          }
+
+          const progress = Math.min((currentTime - startTime) / duration, 1);
+          const easedProgress = progress * progress * (3 - 2 * progress);
+          const targetCellCount = Math.floor(easedProgress * cells.length);
+
+          for (
+            let index = revealedCellCount;
+            index < targetCellCount;
+            index += 1
+          ) {
+            const cell = cells[index];
+
+            context.drawImage(
+              image,
+              cell.x,
+              cell.y,
+              cell.width,
+              cell.height,
+              cell.x,
+              cell.y,
+              cell.width,
+              cell.height,
+            );
+          }
+
+          revealedCellCount = targetCellCount;
+
+          if (progress < 1) {
+            animationFrame = window.requestAnimationFrame(drawFrame(startTime));
+            return;
+          }
+
+          context.drawImage(image, 0, 0, canvas.width, canvas.height);
+          setIsComplete(true);
+        };
+
+        animationFrame = window.requestAnimationFrame((startTime) => {
+          drawFrame(startTime)(startTime);
+        });
+      }, delay);
+    };
+
+    image.onerror = () => {
+      if (!isCancelled) {
+        setIsComplete(true);
+      }
+    };
 
     return () => {
-      observer.disconnect();
+      isCancelled = true;
+      window.clearTimeout(delayTimer);
+      window.cancelAnimationFrame(animationFrame);
     };
-  }, []);
+  }, [src]);
 
-  return activeSection;
+  return (
+    <>
+      <canvas
+        ref={canvasRef}
+        className={`hero-card__portrait-canvas${isRevealing ? " is-revealing" : ""}`}
+        aria-hidden="true"
+      />
+      <img
+        className={isComplete ? "is-visible" : ""}
+        src={src}
+        alt={alt}
+      />
+    </>
+  );
 }
 
-const navItems = [
-  { href: "#home", label: "Home", id: "home", icon: Home24Regular },
-  { href: "#about-me", label: "About me", id: "about-me", icon: Person24Regular },
-  {
-    href: "#case-study",
-    label: "Case study",
-    id: "case-study",
-    icon: BookOpen24Regular,
-  },
-  { href: "#skills", label: "Skill set", id: "skills", icon: Sparkle24Regular },
-];
-
-function useActiveSection() {
-  const [activeSection, setActiveSection] = React.useState("home");
-
+function ScrollToHash() {
   React.useEffect(() => {
-    const sectionIds = [
-      "home",
-      "about-me",
-      "case-study",
-      "skills",
-    ];
+    const timers = [];
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    const scrollToCurrentHash = ({ behavior = "auto" } = {}) => {
+      if (!window.location.hash) {
+        return;
+      }
 
-        if (!visibleEntry) {
+      const targetId = decodeURIComponent(window.location.hash.slice(1));
+      let attempt = 0;
+
+      const tryScroll = () => {
+        const target = document.getElementById(targetId);
+
+        if (target) {
+          const root = document.documentElement;
+          const previousScrollBehavior = root.style.scrollBehavior;
+          const scrollBehavior = prefersReducedMotion ? "auto" : behavior;
+          const top = target.getBoundingClientRect().top + window.scrollY;
+
+          if (scrollBehavior === "auto") {
+            root.style.scrollBehavior = "auto";
+          }
+
+          window.scrollTo({
+            top,
+            left: 0,
+            behavior: scrollBehavior,
+          });
+
+          if (scrollBehavior === "auto") {
+            root.style.scrollBehavior = previousScrollBehavior;
+          }
+
           return;
         }
 
-        setActiveSection(visibleEntry.target.id);
-      },
-      {
-        rootMargin: "-32% 0px -48% 0px",
-        threshold: [0.1, 0.24, 0.4, 0.6],
-      },
-    );
+        if (attempt < 8) {
+          attempt += 1;
+          timers.push(window.setTimeout(tryScroll, 50));
+        }
+      };
 
-    sectionIds.forEach((id) => {
-      const node = document.getElementById(id);
-      if (node) {
-        observer.observe(node);
-      }
-    });
+      tryScroll();
+    };
+
+    scrollToCurrentHash();
+    const handleHashChange = () => {
+      scrollToCurrentHash({ behavior: "smooth" });
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
 
     return () => {
-      observer.disconnect();
+      timers.forEach((timer) => window.clearTimeout(timer));
+      window.removeEventListener("hashchange", handleHashChange);
     };
   }, []);
 
-  return activeSection;
+  return null;
 }
 
-function FloatingNav({
-  activeSection,
-  items = navItems,
-  label = "Navigate",
-  ariaLabel = "Portfolio navigation",
-  variant = "",
-}) {
-  return (
-    <aside
-      className={`floating-nav${variant ? ` floating-nav--${variant}` : ""}`}
-      aria-label={ariaLabel}
-    >
-      <p className="floating-nav__label">{label}</p>
-      <nav>
-        {items.map(({ href, label: itemLabel, id, icon: Icon }) => (
-          <a
-            key={id}
-            className={`floating-nav__item${activeSection === id ? " is-active" : ""}`}
-            href={href}
-            aria-current={activeSection === id ? "page" : undefined}
-          >
-            <span className="floating-nav__icon" aria-hidden="true">
-              <Icon />
-            </span>
-            <span>{itemLabel}</span>
-          </a>
-        ))}
-      </nav>
-    </aside>
-  );
-}
+function DashboardPreviewModal({ onClose }) {
+  React.useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
 
-function TopBar() {
-  return (
-    <header className="top-bar" aria-label="Portfolio contact links">
-      <a className="brand-lockup" href="#home" aria-label="Aldren Gacute home">
-        <span>
-          <strong>Aldren Gacute</strong>
-          <small>Product Owner | UI/UX &amp; Workflow</small>
-        </span>
-      </a>
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
 
-      <div className="top-actions" aria-label="Contact actions">
-        <a
-          className="button button--subtle"
-          href="https://www.linkedin.com/in/aldren-gacute"
-          target="_blank"
-          rel="noreferrer"
-        >
-          LinkedIn
-          <Open24Regular aria-hidden="true" />
-        </a>
-        <a
-          className="button button--primary"
-          href="mailto:aldgacute@gmail.com?subject=Portfolio%20Inquiry"
-        >
-          <Mail24Regular aria-hidden="true" />
-          Email me
-        </a>
-      </div>
-    </header>
-  );
-}
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
 
-function SectionHeader({ eyebrow, title, description, id }) {
-  return (
-    <div className="section-header">
-      <p className="eyebrow">{eyebrow}</p>
-      <h2 id={id}>{title}</h2>
-      {description ? <p>{description}</p> : null}
-    </div>
-  );
-}
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
 
-function HomeSection() {
-  return (
-    <section id="home" className="page-section hero-section" aria-labelledby="home-title">
-      <div className="hero-layout">
-        <div className="hero-copy">
-          <p className="eyebrow">Portfolio / Product UX / Operations</p>
-          <h1 id="home-title">
-            Hi, I&rsquo;m Aldren.
-          </h1>
-          <p className="hero-lede">
-            Product Owner | UI/UX &amp; Workflow-Focused Problem Solver | Bridging
-            Design, Systems &amp; User Experience
-          </p>
-
-          <div className="hero-actions">
-            <a className="button button--primary" href="#case-study">
-              View case study
-              <ArrowRight24Regular aria-hidden="true" />
-            </a>
-            <a className="button button--subtle" href="#about-me">
-              About me
-            </a>
-          </div>
-
-          <dl className="hero-stats" aria-label="Portfolio highlights">
-            <div>
-              <dt>Product owner</dt>
-              <dd>Backlog • Prioritization • Delivery</dd>
-            </div>
-            <div>
-              <dt>Construction Engineering</dt>
-              <dd>7 Years of Field Engineering &amp; Turnover Experience</dd>
-            </div>
-            <div>
-              <dt>UI/UX</dt>
-              <dd>Workflow Optimization &amp; Product Design</dd>
-            </div>
-          </dl>
-        </div>
-
-      </div>
-    </section>
-  );
-}
-
-function AboutSection() {
-  return (
-    <section id="about-me" className="page-section" aria-labelledby="about-title">
-      <SectionHeader
-        eyebrow="About me"
-        id="about-title"
-        title="Product owner grounded in operations"
-        description="Product Owner with a strong operations background, translating business needs into user-focused digital solutions. Experienced in backlog management, stakeholder collaboration, and delivering product enhancements through Agile practices."
-      />
-
-      <div className="about-grid">
-        {journeySteps.map((step, index) => (
-          <article className="journey-card" key={step.label}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <h3>{step.label}</h3>
-            <p>{step.detail}</p>
-          </article>
-        ))}
-      </div>
-
-      <div className="split-section">
-        <div className="story-block">
-          <h3>Product ownership with field-tested domain context</h3>
-          <p>
-            I am a Product Owner with nearly two years of experience delivering
-            digital products, backed by over seven years of engineering and
-            operations experience.
-          </p>
-          <p>
-            My background enables me to understand business and operational
-            challenges and translate them into clear, actionable product
-            requirements. I manage and refine the product backlog, define user
-            stories and acceptance criteria, prioritize enhancements, and
-            validate delivered features to ensure they meet business objectives.
-          </p>
-          <p>
-            I collaborate closely with stakeholders, users, and development
-            teams throughout the product lifecycle, from requirements gathering
-            and backlog refinement to sprint planning, testing, and release. I
-            enjoy solving complex problems, improving processes, and delivering
-            products that create meaningful value for both users and the
-            business.
-          </p>
-        </div>
-
-        <div className="feedback-panel" aria-label="Common product feedback areas">
-          <h3>What I drive as a PO</h3>
-          <ul>
-            {productFeedback.map((item) => (
-              <li key={item}>
-                <CheckmarkCircle24Regular aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div className="focus-cloud" aria-label="Current focus areas">
-        {currentFocus.map((item) => (
-          <span key={item}>{item}</span>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function CaseSelectionCard({ caseStudy, index }) {
-  return (
-    <a className="case-selection-card" href={getCaseStudyDetailHash(caseStudy)}>
-      <div className="case-selection-card__icon" aria-hidden="true">
-        <FolderOpen24Regular />
-      </div>
-      <div>
-        <p>Case Study {String(index + 1).padStart(2, "0")}</p>
-        <h3>{caseStudy.title}</h3>
-        <span>{caseStudy.summary}</span>
-      </div>
-      <strong>
-        Open detail
-        <ArrowRight24Regular aria-hidden="true" />
-      </strong>
-    </a>
-  );
-}
-
-function CaseStudySelection() {
-  return (
-    <section id="case-study" className="page-section" aria-labelledby="case-title">
-      <SectionHeader
-        eyebrow="Case study"
-        id="case-title"
-        title="Choose a project"
-      />
-
-      <div className="case-selection-grid">
-        {caseStudies.map((caseStudy, index) => (
-          <CaseSelectionCard
-            key={caseStudy.id}
-            caseStudy={caseStudy}
-            index={index}
-          />
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function DetailCardGroup({ title, items, icon: Icon }) {
-  return (
-    <article className="detail-card">
-      <div className="detail-card__heading">
-        <Icon aria-hidden="true" />
-        <h3>{title}</h3>
-      </div>
-      <ul>
-        {items.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    </article>
-  );
-}
-
-function InsightGrid({ title, items }) {
-  return (
-    <div className="insight-group">
-      <h3>{title}</h3>
-      <div className="insight-grid">
-        {items.map((item) => (
-          <article className="insight-card" key={item.title}>
-            <h4>{item.title}</h4>
-            <p>{item.body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function CaseStudyDetailGroup({ id, title, items }) {
-  return (
-    <div id={id} className="case-anchor">
-      <InsightGrid title={title} items={items} />
-    </div>
-  );
-}
-
-function CaseStudySnippetGallery({ snippets }) {
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  const totalItems = snippets.items.length;
-
-  if (!totalItems) {
-    return null;
-  }
-
-  const activeItem = snippets.items[activeIndex];
-
-  const showPrevious = () => {
-    setActiveIndex((currentIndex) => (currentIndex - 1 + totalItems) % totalItems);
-  };
-
-  const showNext = () => {
-    setActiveIndex((currentIndex) => (currentIndex + 1) % totalItems);
+  const handleBackdropMouseDown = (event) => {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
   };
 
   return (
-    <section className="snippet-gallery-section" aria-labelledby="snippet-gallery-title">
-      <div className="snippet-gallery-heading">
-        <p className="eyebrow">{snippets.eyebrow}</p>
-        <h3 id="snippet-gallery-title">{snippets.title}</h3>
-        {snippets.description ? <p>{snippets.description}</p> : null}
-      </div>
-
-      <div className="snippet-slideshow" aria-label="Product screen slideshow">
-        <div className="snippet-slide-frame">
-          <button
-            className="snippet-slide-button snippet-slide-button--previous"
-            type="button"
-            aria-label="View previous screenshot"
-            onClick={showPrevious}
-          >
-            <ArrowRight24Regular aria-hidden="true" />
-          </button>
-          <img
-            key={activeItem.src}
-            src={activeItem.src}
-            alt={activeItem.alt}
-          />
-          <button
-            className="snippet-slide-button snippet-slide-button--next"
-            type="button"
-            aria-label="View next screenshot"
-            onClick={showNext}
-          >
-            <ArrowRight24Regular aria-hidden="true" />
-          </button>
-        </div>
-
-        <div className="snippet-slide-footer">
-          <div>
-            <p className="snippet-slide-count">
-              {String(activeIndex + 1).padStart(2, "0")} / {String(totalItems).padStart(2, "0")}
-            </p>
-            <h4>{activeItem.title}</h4>
-            <p>{activeItem.description}</p>
-          </div>
-          <a
-            className="snippet-slide-open"
-            href={activeItem.src}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open full image
-            <Open24Regular aria-hidden="true" />
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CaseStudyDetail({ caseStudy }) {
-  return (
-    <section
-      id={caseStudy.id}
-      className="page-section case-detail-section"
-      aria-labelledby="case-detail-title"
-    >
-      <div id="project-overview" className="case-detail-hero case-anchor">
-        <div>
-          <p className="eyebrow">{caseStudy.eyebrow}</p>
-          <h2 id="case-detail-title">{caseStudy.title}</h2>
-          <p>{caseStudy.summary}</p>
-        </div>
-        <div className="case-detail-index" aria-label="Case study number">
-          <span>Case</span>
-          <strong>01</strong>
-        </div>
-      </div>
-
-      <div className="tag-row" aria-label="Case study focus areas">
-        {caseStudy.tags.map((tag) => (
-          <span key={tag}>{tag}</span>
-        ))}
-      </div>
-
-      {caseStudy.liveUrl ? (
-        <a
-          className="case-live-link"
-          href={caseStudy.liveUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Open live project
-          <Open24Regular aria-hidden="true" />
-        </a>
-      ) : null}
-
-      {caseStudy.snippets ? (
-        <CaseStudySnippetGallery snippets={caseStudy.snippets} />
-      ) : null}
-
-      <div className="detail-grid">
-        <DetailCardGroup
-          title="Problems solved"
-          items={caseStudy.problemAreas}
-          icon={Briefcase24Regular}
-        />
-        <DetailCardGroup
-          title="System capabilities"
-          items={caseStudy.systemIncludes}
-          icon={Document24Regular}
-        />
-      </div>
-
-      <CaseStudyDetailGroup
-        id="design-challenge"
-        title="Design challenges"
-        items={caseStudy.designChallenges}
-      />
-      <CaseStudyDetailGroup
-        id="user-research-findings"
-        title="Research findings"
-        items={caseStudy.researchFindings}
-      />
-      <CaseStudyDetailGroup
-        id="design-solutions-implemented"
-        title="Solutions implemented"
-        items={caseStudy.solutions}
-      />
-
-      <div id="results-achieved" className="results-panel case-anchor">
-        <div>
-          <p className="eyebrow">Results achieved</p>
-          <h3>Clearer administration and better workforce visibility</h3>
-          <p>{caseStudy.conclusion}</p>
-        </div>
-        <ul>
-          {caseStudy.results.map((result) => (
-            <li key={result}>
-              <CheckmarkCircle24Regular aria-hidden="true" />
-              {result}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
-function SkillsSection() {
-  return (
-    <section id="skills" className="page-section skills-section" aria-labelledby="skills-title">
-      <SectionHeader
-        eyebrow="Skill set"
-        id="skills-title"
-        title="Capability cards"
-      />
-
-      <div className="skills-grid">
-        {skills.map((skill) => (
-          <article className="skill-card" key={skill.title}>
-            <div className="skill-card__header">
-              <Sparkle24Regular aria-hidden="true" />
-              <h3>{skill.title}</h3>
-            </div>
-            <div className="skill-card__body">
-              {skill.items.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="footer" aria-label="Contact footer">
-      <div>
-        <strong>Aldren Gacute</strong>
-        <span>Product ownership, domain-driven delivery, and workflow systems.</span>
-      </div>
-      <a
-        className="button button--primary"
-        href="mailto:aldgacute@gmail.com?subject=Portfolio%20Inquiry"
+    <div className="dashboard-modal" role="presentation" onMouseDown={handleBackdropMouseDown}>
+      <section
+        className="dashboard-modal__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="dashboard-modal-title"
       >
-        <Mail24Regular aria-hidden="true" />
-        aldgacute@gmail.com
-      </a>
-    </footer>
+        <header className="dashboard-modal__header">
+          <div>
+            <p>Mockup Dashboard</p>
+            <h2 id="dashboard-modal-title">Sprint Performance Dashboard</h2>
+          </div>
+          <button
+            className="dashboard-modal__close"
+            type="button"
+            onClick={onClose}
+            aria-label="Close dashboard preview"
+          >
+            X
+          </button>
+        </header>
+
+        <div className="dashboard-preview">
+          <div className="dashboard-preview__top">
+            <article className="dashboard-preview__iteration">
+              <p>Iteration-6</p>
+              <strong>MM/DD - MM/DD/YYYY</strong>
+              <span>Current Iteration</span>
+            </article>
+
+            {dashboardGauges.map((item) => {
+              const progress = Math.max(3, Math.min(50, (item.value / item.max) * 50));
+
+              return (
+                <article
+                  key={item.title}
+                  className="dashboard-preview__gauge"
+                  style={{
+                    "--gauge-accent": item.accent,
+                    "--gauge-progress": `${progress}%`,
+                  }}
+                >
+                  <p>{item.title}</p>
+                  <div className="dashboard-preview__gauge-wrap" aria-hidden="true">
+                    <span>0</span>
+                    <div className="dashboard-preview__gauge-arc" />
+                    <span>{item.max}</span>
+                  </div>
+                  <strong>{item.value}</strong>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="dashboard-preview__grid">
+            <article className="dashboard-preview__panel dashboard-preview__panel--table">
+              <h3>Impact Labels</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Index</th>
+                    <th>Labels</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {dashboardLabels.map(([label, description], index) => (
+                    <tr key={label}>
+                      <td>{index + 1}</td>
+                      <td>{label}</td>
+                      <td>{description}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </article>
+
+            <div className="dashboard-preview__mini-row">
+              <article className="dashboard-preview__mini-card">
+                <strong>6.60</strong>
+                <span>Average SP for Aldren</span>
+              </article>
+
+              <article className="dashboard-preview__mini-card dashboard-preview__mini-card--gold">
+                <strong>20.00</strong>
+                <span>Average SP for Developer</span>
+              </article>
+            </div>
+
+            <article className="dashboard-preview__panel dashboard-preview__panel--executive">
+              <h3>Executive Summary</h3>
+              <p>
+                Across all tracked iterations, the team completed{" "}
+                <strong>### story points across ## closed work items</strong>,
+                with sprint velocity reaching a peak of{" "}
+                <strong>## story points during Iteration 3</strong>.{" "}
+                <strong>
+                  Strategic and New Feature initiatives remained the primary
+                  work categories, reflecting the team's continued focus on
+                  high-impact development.
+                </strong>{" "}
+                Overall, the team achieved a strong{" "}
+                <strong>average sprint completion rate of 98.75%</strong>,
+                demonstrating consistent delivery against planned sprint targets.
+              </p>
+            </article>
+
+            <article className="dashboard-preview__panel dashboard-preview__panel--line">
+              <div className="dashboard-preview__panel-title">
+                <h3>Accumulated Items by Labels</h3>
+                <span>Closed Items</span>
+              </div>
+              <svg viewBox="0 0 720 250" aria-hidden="true">
+                <g className="dashboard-preview__grid-lines">
+                  <line x1="42" y1="28" x2="42" y2="210" />
+                  <line x1="42" y1="210" x2="675" y2="210" />
+                  <line x1="42" y1="160" x2="675" y2="160" />
+                  <line x1="42" y1="110" x2="675" y2="110" />
+                  <line x1="42" y1="60" x2="675" y2="60" />
+                </g>
+                {dashboardLineSeries.map((series) => (
+                  <polyline
+                    key={series.name}
+                    points={series.points}
+                    fill="none"
+                    stroke={series.color}
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    transform="translate(30 0)"
+                  />
+                ))}
+                <g className="dashboard-preview__axis-labels">
+                  <text x="42" y="232">Apr 2026</text>
+                  <text x="282" y="232">Jun 2026</text>
+                  <text x="522" y="232">Jul 2026</text>
+                </g>
+              </svg>
+              <ul className="dashboard-preview__legend">
+                {dashboardLineSeries.map((series) => (
+                  <li key={series.name}>
+                    <span style={{ backgroundColor: series.color }} />
+                    {series.name}
+                  </li>
+                ))}
+              </ul>
+            </article>
+
+            <article className="dashboard-preview__panel dashboard-preview__panel--completion">
+              <div className="dashboard-preview__panel-title">
+                <h3>Sprint Completion by %</h3>
+                <strong>Average Sprint Completion: 98.75%</strong>
+              </div>
+              <div className="dashboard-preview__completion-bars">
+                {sprintCompletion.map((value, index) => (
+                  <div key={`${value}-${index}`} className="dashboard-preview__completion-bar">
+                    <span style={{ "--bar-height": `${value}%` }}>
+                      <em>{value}%</em>
+                    </span>
+                    <small>Iteration {index + 1}</small>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article className="dashboard-preview__panel dashboard-preview__panel--story">
+              <div className="dashboard-preview__panel-title">
+                <h3>Total Story Point</h3>
+                <span>By person</span>
+              </div>
+              <div className="dashboard-preview__grouped-bars">
+                {storyPointPairs.map(([aldren, developer], index) => (
+                  <div key={`${aldren}-${developer}-${index}`} className="dashboard-preview__bar-group">
+                    <span
+                      className="dashboard-preview__bar dashboard-preview__bar--blue"
+                      style={{ "--bar-height": `${(aldren / 25) * 100}%` }}
+                    >
+                      <em>{aldren}</em>
+                    </span>
+                    <span
+                      className="dashboard-preview__bar dashboard-preview__bar--gold"
+                      style={{ "--bar-height": `${(developer / 25) * 100}%` }}
+                    >
+                      <em>{developer}</em>
+                    </span>
+                    <small>{index + 1}</small>
+                  </div>
+                ))}
+              </div>
+              <div className="dashboard-preview__simple-legend">
+                <span><i className="dashboard-preview__dot dashboard-preview__dot--blue" />Aldren Gacute</span>
+                <span><i className="dashboard-preview__dot dashboard-preview__dot--gold" />Developer</span>
+              </div>
+            </article>
+
+            <article className="dashboard-preview__panel dashboard-preview__panel--issues">
+              <div className="dashboard-preview__panel-title">
+                <h3>Issue Count</h3>
+                <span>Done vs Spillover</span>
+              </div>
+              <div className="dashboard-preview__grouped-bars">
+                {issueCounts.map(([done, spillover], index) => (
+                  <div key={`${done}-${spillover}-${index}`} className="dashboard-preview__bar-group">
+                    <span
+                      className="dashboard-preview__bar dashboard-preview__bar--green"
+                      style={{ "--bar-height": `${(done / 20) * 100}%` }}
+                    >
+                      <em>{done}</em>
+                    </span>
+                    <span
+                      className="dashboard-preview__bar dashboard-preview__bar--blue"
+                      style={{ "--bar-height": `${(spillover / 20) * 100}%` }}
+                    >
+                      <em>{spillover}</em>
+                    </span>
+                    <small>FY2026-{index + 1}</small>
+                  </div>
+                ))}
+              </div>
+              <div className="dashboard-preview__simple-legend">
+                <span><i className="dashboard-preview__dot dashboard-preview__dot--green" />Done</span>
+                <span><i className="dashboard-preview__dot dashboard-preview__dot--blue" />Spillover</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
 
-function MainPortfolioPage() {
-  const activeSection = useActiveSection();
+function FrontPage() {
+  const [isDashboardPreviewOpen, setIsDashboardPreviewOpen] = React.useState(false);
+  const [isProjectsMenuOpen, setIsProjectsMenuOpen] = React.useState(false);
+  const projectsMenuRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const handlePointerDown = (event) => {
+      if (!projectsMenuRef.current?.contains(event.target)) {
+        setIsProjectsMenuOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsProjectsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
-    <>
-      <FloatingNav activeSection={activeSection} />
-      <div className="portfolio-page">
-        <TopBar />
-        <main className="page-main">
-          <HomeSection />
-          <AboutSection />
-          <CaseStudySelection />
-          <SkillsSection />
-        </main>
-        <Footer />
-      </div>
-    </>
-  );
-}
+    <main className="site-shell">
+      <section id="home" className="front-page" aria-labelledby="front-page-title">
+        <article className="hero-card">
+          <header className="hero-card__nav" aria-label="Portfolio header">
+            <div className="hero-card__nav-left">
+              <a className="hero-card__brand" href="#home" aria-label="ALDREN GACUTE home">
+                ALDREN GACUTE
+              </a>
+              <nav aria-label="Primary">
+                <div
+                  ref={projectsMenuRef}
+                  className={`hero-card__projects-menu${isProjectsMenuOpen ? " is-open" : ""}`}
+                >
+                  <button
+                    className="hero-card__projects-trigger"
+                    type="button"
+                    aria-haspopup="true"
+                    aria-expanded={isProjectsMenuOpen}
+                    onClick={() => setIsProjectsMenuOpen((isOpen) => !isOpen)}
+                  >
+                    Projects
+                  </button>
+                  <div className="hero-card__projects-dropdown" role="menu" aria-label="Project links">
+                    <a
+                      href="https://skillmatrix-client.onrender.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                      role="menuitem"
+                      onClick={() => setIsProjectsMenuOpen(false)}
+                    >
+                      Skill Matrix Application
+                    </a>
+                    <a
+                      href="https://invoiceflowapp.onrender.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                      role="menuitem"
+                      onClick={() => setIsProjectsMenuOpen(false)}
+                    >
+                      Invoice Application
+                    </a>
+                  </div>
+                </div>
+                <a href="#about">About Me</a>
+                <a href="#beyond">Beyond</a>
+              </nav>
+            </div>
+            <a className="hero-card__contact" href="mailto:aldgacute@gmail.com">
+              Contact Me
+            </a>
+          </header>
 
-function CaseStudyDetailPage({ caseStudy, caseStudySection }) {
-  const activeSection = useCaseStudyActiveSection(caseStudySection);
-  const detailNavItems = getCaseStudyDetailNavItems(caseStudy);
+          <div className="hero-card__portrait">
+            <PixelRevealPortrait
+              src={portraitSrc}
+              alt="Illustrated portrait of Aldren Gacute"
+            />
+          </div>
 
-  return (
-    <>
-      <FloatingNav
-        activeSection={activeSection}
-        items={detailNavItems}
-        label="Case study"
-        ariaLabel="Case study detail navigation"
-        variant="case-detail"
-      />
-      <div className="portfolio-page portfolio-page--case-detail">
-        <TopBar />
-        <main className="page-main">
-          <a className="detail-back-link" href="#case-study">
-            <ArrowRight24Regular aria-hidden="true" />
-            Back to case study selection
+          <h1 id="front-page-title" className="hero-card__name">
+            ALDREN GACUTE
+          </h1>
+
+          <p className="hero-card__tagline">
+            Product Owner | UI/UX &amp; Workflow-Focused Problem Solver | Bridging Design, Systems &amp; User Experience
+          </p>
+
+          <div className="hero-card__roles" aria-label="Professional roles">
+            <span>ENGINEER / PRODUCT OWNER</span>
+          </div>
+
+          <footer className="hero-card__links" aria-label="Profile links">
+            <a href="mailto:aldgacute@gmail.com">Mail</a>
+            <a href="https://www.linkedin.com/in/aldren-gacute" target="_blank" rel="noreferrer">
+              in
+            </a>
+          </footer>
+
+          <a className="hero-card__scroll" href="#about" aria-label="Go to next section">
+            <span />
+            <span />
           </a>
-          <CaseStudyDetail caseStudy={caseStudy} />
-        </main>
-        <Footer />
-      </div>
-    </>
+        </article>
+      </section>
+      <section id="about" className="about-page" aria-labelledby="about-title">
+        <div className="about-page__inner">
+          <header className="about-page__intro">
+            <p>About Me</p>
+            <div>
+              <div className="about-page__title-row">
+                <h2 id="about-title">Product owner grounded in operations</h2>
+                <a className="about-page__home-link" href="#home" aria-label="Back to home">
+                  <span />
+                  <span />
+                </a>
+              </div>
+              <p>
+                Product Owner with a strong operations background, translating
+                business needs into user-focused digital solutions. Experienced
+                in backlog management, stakeholder collaboration, and delivering
+                product enhancements through Agile practices.
+              </p>
+            </div>
+          </header>
+
+          <div className="about-page__body">
+            <aside className="about-page__sidebar" aria-label="Experience and skills">
+              <section className="experience" aria-labelledby="experience-title">
+                <h2 id="experience-title">Experience</h2>
+                <ol className="experience__timeline">
+                  {experiences.map((item) => (
+                    <li key={`${item.title}-${item.period}`} className="experience__item">
+                      <h3>{item.title}</h3>
+                      {item.system ? <p>{item.system}</p> : null}
+                      <time>{item.period}</time>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+
+              <section className="skills" aria-labelledby="skills-title">
+                <h2 id="skills-title">Product toolkit</h2>
+                <ul className="skill-cloud" aria-label="Core skills">
+                  {skills.map((skill) => (
+                    <li key={skill}>{skill}</li>
+                  ))}
+                </ul>
+              </section>
+            </aside>
+
+            <div className="about-page__content">
+              <section className="strength-grid" aria-label="Product ownership strengths">
+                {strengths.map((item) => (
+                  <article key={item.label} className="strength-card">
+                    <span>{item.label}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </article>
+                ))}
+              </section>
+
+              <section className="po-drivers" aria-labelledby="po-drivers-title">
+                <h2 id="po-drivers-title">What I drive as a PO</h2>
+                <ul>
+                  {drivers.map((driver) => (
+                    <li key={driver}>{driver}</li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+        <a className="about-page__next-link" href="#beyond" aria-label="Go to Beyond PO">
+          <span />
+          <span />
+        </a>
+      </section>
+      <section id="beyond" className="beyond-page" aria-labelledby="beyond-title">
+        <div className="beyond-page__inner">
+          <header className="beyond-page__header">
+            <p>Beyond PO</p>
+            <div>
+              <div className="beyond-page__title-row">
+                <h2 id="beyond-title">Beyond Product Ownership</h2>
+                <a className="beyond-page__about-link" href="#about" aria-label="Back to About Me">
+                  <span />
+                  <span />
+                </a>
+              </div>
+              <p>
+                I do not just manage the backlog. I look for opportunities to
+                improve the product, the way we work, and the value we deliver.
+              </p>
+            </div>
+          </header>
+
+          <div className="beyond-page__intro">
+            <p>
+              As a <strong>Product Owner</strong>, my core responsibility is to
+              understand user and business needs, define priorities, manage the
+              product backlog, coordinate with stakeholders and the development
+              team, and guide features from concept to release. However, my
+              contribution extends beyond traditional Product Ownership.
+            </p>
+          </div>
+
+          <section className="beyond-grid" aria-label="Beyond product ownership areas">
+            {beyondAreas.map((area) => (
+              <article key={area.label} className="beyond-card">
+                <span>{area.label}</span>
+                <h3>{area.title}</h3>
+                <p>{area.body}</p>
+                {area.hasDashboardPreview ? (
+                  <button
+                    className="beyond-card__dashboard-button"
+                    type="button"
+                    onClick={() => setIsDashboardPreviewOpen(true)}
+                  >
+                    View dashboard mockup
+                  </button>
+                ) : null}
+                {area.flow ? (
+                  <ol className="beyond-card__flow" aria-label={`${area.title} process`}>
+                    {area.flow.map((step) => (
+                      <li key={step} className="beyond-card__flow-step">
+                        {step}
+                      </li>
+                    ))}
+                  </ol>
+                ) : null}
+              </article>
+            ))}
+          </section>
+
+          <footer className="beyond-page__closing">
+            <p>
+              This is how I approach Product Ownership - not simply as managing
+              requirements and delivery, but as a combination of{" "}
+              <strong>
+                Product Strategy, Data & Analytics, UI/UX, AI-Assisted
+                Development, and Continuous Improvement.
+              </strong>
+            </p>
+          </footer>
+        </div>
+      </section>
+      {isDashboardPreviewOpen ? (
+        <DashboardPreviewModal onClose={() => setIsDashboardPreviewOpen(false)} />
+      ) : null}
+    </main>
   );
 }
 
 function App() {
-  const { hash, caseStudy, caseStudySection } = useHashRoute();
-  const isCaseDetailPage = Boolean(caseStudy);
-
-  useScrollRestoration(hash, isCaseDetailPage, caseStudySection);
-
   return (
-    <FluentProvider
-      theme={webLightTheme}
-      className="app-shell"
-    >
-      {caseStudy ? (
-        <CaseStudyDetailPage
-          caseStudy={caseStudy}
-          caseStudySection={caseStudySection}
-        />
-      ) : (
-        <MainPortfolioPage />
-      )}
-    </FluentProvider>
+    <>
+      <ScrollToHash />
+      <FrontPage />
+    </>
   );
 }
 
